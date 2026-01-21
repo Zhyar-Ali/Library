@@ -3,3 +3,46 @@
     margin: 0;
     box-sizing: border-box;
 }
+#add{
+
+}
+#form{
+    height: 30%;
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+}
+fieldset{
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    border: none;
+    gap: 20px;
+    padding: 5%;
+}
+legend{
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 20px;
+}
+.card{
+    background-color: rgb(201, 205, 206);
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 10px rgb(137, 141, 141);
+}
+.upper{
+    padding-left: 5%;
+    font-weight: bold;
+    font-size: 20px;
+}
+.lower{
+    padding-left: 5%;
+    color: rgb(107, 107, 107);
+    font-size: 17px;
+}
