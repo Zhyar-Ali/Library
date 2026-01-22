@@ -6,6 +6,9 @@
 #add{
 
 }
+#not_read{
+    margin-left: 25px;
+}
 #form{
     height: 30%;
     width: 50%;
@@ -17,12 +20,16 @@ fieldset{
     grid-template-columns: 0.75fr 1fr;
     border: none;
     gap: 20px;
-    padding: 5%;
+    padding: 3%;
 }
 legend{
     padding-top: 10px;
     font-weight: bold;
     font-size: 20px;
+}
+input[type="text"]{
+    border-radius: 10px;
+    border: 1px solid black;
 }
 .container{
     display: grid;
@@ -45,4 +52,12 @@ legend{
     padding-left: 5%;
     color: rgb(107, 107, 107);
     font-size: 17px;
+}
+.lowest{
+    padding-left: 5%;
+    color: rgb(107, 107, 107);
+    font-size: 17px;
+}
+span{
+    font-weight: bold;
 }
