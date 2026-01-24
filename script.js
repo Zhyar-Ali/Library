@@ -83,6 +83,7 @@ function submitClick(event){
     const pagesValue = pages.value;
     const statusValue = document.querySelector('input[name="status"]:checked').value;
 
+    document.querySelector("form").reset();
     addBookToLibrary(titleValue, authorValue, pagesValue, statusValue);
     displayBooks();
 }
