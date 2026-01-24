@@ -25,8 +25,6 @@ addBookToLibrary("bye", "zhiar", 222, "idk");
 addBookToLibrary("bye", "zhiar", 222, "idk");
 addBookToLibrary("bye", "zhiar", 222, "idk");
 addBookToLibrary("bye", "zhiar", 222, "idk");
-addBookToLibrary("bye", "zhiar", 222, "idk");
-addBookToLibrary("bye", "zhiar", 222, "idk");
 
 const CONTAINER = document.querySelector(".container");
 
@@ -35,6 +33,10 @@ function displayBooks(){
         if(!booksDisplayed.includes(book)){
             const div = document.createElement("div");
             div.classList.add("card");
+            const removeButton = document.createElement("button");
+            removeButton.classList.add("removeCard");
+
+            removeButton.textContent="Remove Book";
 
             const paraOne = document.createElement("p");
             const upper = document.createTextNode(book.title + " by " + book.author);
@@ -51,7 +53,7 @@ function displayBooks(){
             paraThree.appendChild(lowest);
             paraThree.classList.add("lowest");
 
-            div.append(paraOne,paraTwo,paraThree);
+            div.append(paraOne,paraTwo,paraThree, removeButton);
             CONTAINER.appendChild(div);
 
             booksDisplayed.push(book);
