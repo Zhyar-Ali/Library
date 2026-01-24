@@ -31,12 +31,14 @@ const CONTAINER = document.querySelector(".container");
 function displayBooks(){
     for (const book of library){
         if(!booksDisplayed.includes(book)){
+
             const div = document.createElement("div");
             div.classList.add("card");
+
             const removeButton = document.createElement("button");
             removeButton.classList.add("removeCard");
-
             removeButton.textContent="Remove Book";
+            removeButton.setAttribute('data-id',book.id);
 
             const paraOne = document.createElement("p");
             const upper = document.createTextNode(book.title + " by " + book.author);
@@ -55,6 +57,12 @@ function displayBooks(){
 
             div.append(paraOne,paraTwo,paraThree, removeButton);
             CONTAINER.appendChild(div);
+
+            removeButton.addEventListener("click", ()=>{
+                if (removeButton.dataset.id === book.id){
+                    div.remove();
+                }
+            });
 
             booksDisplayed.push(book);
         }
@@ -89,4 +97,3 @@ function submitClick(event){
     addBookToLibrary(titleValue, authorValue, pagesValue, statusValue);
     displayBooks();
 }
-
