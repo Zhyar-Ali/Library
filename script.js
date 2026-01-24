@@ -76,6 +76,7 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const statusinput = document.querySelector('input[name="status"]:checked');
+const form = document.querySelector("form");
 
 addButton.addEventListener("click", () =>{
     dialog.showModal();
@@ -93,7 +94,13 @@ function submitClick(event){
     const pagesValue = pages.value;
     const statusValue = document.querySelector('input[name="status"]:checked').value;
 
-    document.querySelector("form").reset();
+    form.reset();
     addBookToLibrary(titleValue, authorValue, pagesValue, statusValue);
     displayBooks();
 }
+
+const exitForm = document.getElementById("exitForm");
+
+exitForm.addEventListener("click", ()=>{
+    dialog.close();
+})
