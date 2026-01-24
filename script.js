@@ -12,19 +12,19 @@ function Book(id, title, author, pages, status){
     this.status = status;
 }
 
+Book.prototype.toggleStatus = function(){
+    if (this.status === "Have Read"){
+        this.status = "Have Not Read";
+    } else{
+        this.status = "Have Read";
+    }
+};
+
 function addBookToLibrary(title, author, pages, status){
     let id =crypto.randomUUID();
     const book = new Book(id,title,author,pages,status);
     library.push(book);
 }
-
-
-addBookToLibrary("hi", "zhiar", 222, "idk");
-addBookToLibrary("bye", "zhiar", 222, "idk");
-addBookToLibrary("bye", "zhiar", 222, "idk");
-addBookToLibrary("bye", "zhiar", 222, "idk");
-addBookToLibrary("bye", "zhiar", 222, "idk");
-addBookToLibrary("bye", "zhiar", 222, "idk");
 
 const CONTAINER = document.querySelector(".container");
 
@@ -39,6 +39,10 @@ function displayBooks(){
             removeButton.classList.add("removeCard");
             removeButton.textContent="Remove Book";
             removeButton.setAttribute('data-id',book.id);
+
+            const changeStatus = document.createElement("button");
+            changeStatus.classList.add("changeStatus");
+            changeStatus.textContent = "Change Status";
 
             const paraOne = document.createElement("p");
             const upper = document.createTextNode(book.title + " by " + book.author);
@@ -55,7 +59,7 @@ function displayBooks(){
             paraThree.appendChild(lowest);
             paraThree.classList.add("lowest");
 
-            div.append(paraOne,paraTwo,paraThree, removeButton);
+            div.append(paraOne,paraTwo,paraThree, removeButton, changeStatus);
             CONTAINER.appendChild(div);
 
             removeButton.addEventListener("click", ()=>{
@@ -64,11 +68,15 @@ function displayBooks(){
                 }
             });
 
+            changeStatus.addEventListener("click", ()=>{
+                book.toggleStatus();
+                lowest.textContent = "Status: " + book.status;
+            });
+
             booksDisplayed.push(book);
         }
     }
 }
-displayBooks();
 
 const addButton = document.getElementById("add");
 const dialog = document.getElementById("form");
