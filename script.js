@@ -1,24 +1,23 @@
 const library = [];
 const booksDisplayed = [];
 
-function Book(id, title, author, pages, status){
-    if(!new.target){
-        throw Error("use new");
+class Book {
+    constructor(id,title,author,pages,status){
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
     }
-    this.id = id;
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-}
 
-Book.prototype.toggleStatus = function(){
-    if (this.status === "Have Read"){
-        this.status = "Have Not Read";
-    } else{
-        this.status = "Have Read";
-    }
-};
+    toggleStatus(){
+        if (this.status === "Have Read"){
+            this.status = "Have Not Read";
+        } else{
+            this.status = "Have Read";
+        }
+        }
+}
 
 function addBookToLibrary(title, author, pages, status){
     let id =crypto.randomUUID();
